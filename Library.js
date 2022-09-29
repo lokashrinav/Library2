@@ -27,10 +27,9 @@ function Read() {
 function NotRead() {
   this.putty = weight;
 }
-
+let yt = 0;
 let e = 0;
 let pk;
-
 document.getElementsByClassName('center')[0]
         .addEventListener('click', function (event) {
           pop.classList.remove("popup");
@@ -43,45 +42,35 @@ function siv() {
           let first = document.getElementById("hi1").value;
           let second = document.getElementById("hi2").value;
           let third = document.getElementById("hi3").value;
-
           for(pk = 0; pk < i; pk++) {
             let r = document.querySelector(".card");
             r.remove()
           }
           pop.classList.remove("popup-open");
           pop.classList.add("popup");
-          
-          Library[i] = ["Book Name: " + first, "Author Name: " + second, "Number of Pages: " + third, putty]
+          red = putty;
+          Library[i] = ["Book Name: " + first, "Author Name: " + second, "Number of Pages: " + third, red]
           q=0;
           i++;
+          let xl = 0;
           for(let b = 0; b < i; b++) {
             let newDiv = document.createElement("div");
             newDiv.classList.add("card");
-            if(putty = "Read"){
-              if(classes[3] == "wrong10" || classes[3] == "wrong11"){
-                classes[3] = "wrong10";
-              }
-              else{
-                classes[3] = "wrong10";
-              }
-            }
-            else {
-              if(classes[3] == "wrong10" || classes[3] == "wrong11"){
-                classes.splice(3,0,"wrong11");
-              }
-              else{
-                classes.splice(3,0,"wrong11");
-              }
-            }
             flip.appendChild(newDiv);
             for(let c = 0; c < 4; c++){
               let newDiv1 = document.createElement("div");
-              newDiv1.classList.add(classes[c]);
               newDiv.appendChild(newDiv1);
               newDiv1.innerHTML = Library[b][c]
               if(c==3){
                 newDiv1.setAttribute('onclick',`reverse(${bl})`)
+                if(Library[b][3] == size){
+                  classes.splice(3, 1, "wrong10");
+                }
+                else{
+                  classes.splice(3, 1, "wrong11");
+                }
               }
+              newDiv1.classList.add(classes[c]);
             }
             let newDiv5 = document.createElement("img");
             newDiv5.classList.add("imge");
@@ -93,7 +82,6 @@ function siv() {
             newDiv5.src = "close-box-outline.png";
             newDiv.appendChild(newDiv5);
             q++;
-
           }
           document.getElementById("hi1").value = "";
           document.getElementById("hi2").value = "";
