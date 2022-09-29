@@ -187,7 +187,8 @@ function reverse0(){
     second.removeAttribute('class', 'wrong11')
     second.setAttribute('class', 'wrong10')
     second.innerHTML = "Read";
-  }}
+  }
+}
 
 function reverse1(){
   up=1;

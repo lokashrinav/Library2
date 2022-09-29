@@ -2,11 +2,10 @@ let pop = document.querySelector('.popup');
 let flip = document.querySelector(".flip");
 let currentDiv = document.getElementById("div1");
 
-const handleClick = () => {
-  alert('was clicked');
-}
-
 let Library = [];
+
+let libs = []
+
 let classes = ["title10", "name10", "pages10"]
 
 let thunder = 0;
@@ -14,6 +13,8 @@ let thunder = 0;
 let i = 0;
 
 let q = 0;
+
+let up = 0;
 
 let size = "Read";
 
@@ -40,121 +41,114 @@ document.getElementsByClassName('center')[0]
 
 document.getElementsByClassName('enter')[0]
         .addEventListener('click', function (event) {
+          let bl = 0;
+          let lb = 0;
           let first = document.getElementById("hi1").value;
           let second = document.getElementById("hi2").value;
           let third = document.getElementById("hi3").value;
+          
           for(pk = 0; pk < i; pk++) {
             let r = document.querySelector(".card");
             r.remove()
           }
           pop.classList.remove("popup-open");
           pop.classList.add("popup");
-                    Library[i] = ["Book Name: " + first, "Author Name: " + second, "Number of Pages: " + third, putty]
-          alert(Library[i])
-          i++;
+          Library[i] = ["Book Name: " + first, "Author Name: " + second, "Number of Pages: " + third, putty]
           q=0;
+          i++;
           for(let b = 0; b < i; b++) {
             let newDiv = document.createElement("div");
             newDiv.classList.add("card");
             if(putty = "Read"){
               if(classes[3] == "wrong10" || classes[3] == "wrong11"){
-                classes[3] = "wrong11";
+                classes[3] = "wrong10";
               }
               else{
-                classes[3] = "wrong11";
+                classes[3] = "wrong10";
               }
             }
             else {
               if(classes[3] == "wrong10" || classes[3] == "wrong11"){
-                classes.splice(3,0,"wrong10");
+                classes.splice(3,0,"wrong11");
               }
               else{
-                classes.splice(3,0,"wrong10");
+                classes.splice(3,0,"wrong11");
               }
             }
-            alert()
             flip.appendChild(newDiv);
             for(let c = 0; c < 4; c++){
               let newDiv1 = document.createElement("div");
               newDiv1.classList.add(classes[c]);
               newDiv.appendChild(newDiv1);
               newDiv1.innerHTML = Library[b][c]
+              if(c==3){
+                newDiv1.setAttribute('onclick',`reverse(${bl})`)
+              }
             }
             let newDiv5 = document.createElement("img");
             newDiv5.classList.add("imge");
-            newDiv5.addEventListener('click', (function(){
-            return function(){
-                  v=0;
-                  let p = 0;
-                  let first = document.getElementsByClassName("card")[p];
-                  first.remove();
-                  let flip = document.getElementsByClassName('flip');
-                  var c = flip[0].childElementCount;
-                  while(v<c) {
-                    first = document.getElementsByClassName("card")[v];
-                    let second = first.lastChild;
-                    //second.setAttribute('onclick',`handleDelete${v}()`)
-                    v++;
-                  }
-                  thunder--
-              }})(),false)
-            //newDiv5.setAttribute('onclick',`handleDelete${q}(); hii();`)
+            newDiv5.setAttribute('onclick',`handleDelete(${bl});`)
+            bl++;
+            lb++;
             newDiv5.classList.add(`${e}`);
             e++;
             newDiv5.src = "close-box-outline.png";
             newDiv.appendChild(newDiv5);
-            newDiv.value = thunder;
             q++;
 
           }
           thunder++;
         });
 
-lib = []
-
-let ze = 0;
-
 let v;
+let opo;
+let york;
+let c;
 
-let obj = {};
-//obtain from its second class every iteration
-function hii(){
-  for(let ze = 0; ze < thunder; ze++) {
-    obj['handleDelete' + ze](); {      
-      v=0;
-      let first = document.getElementsByClassName("card")[ze];
-      first.remove();
-      let flip = document.getElementsByClassName('flip');
-      var c = flip[0].childElementCount;
-      while(v<c) {
-        first = document.getElementsByClassName("card")[v];
-        let second = first.lastChild;
-        second.setAttribute('onclick',`handleDelete${v}()`)
-        v++;
-      }
-      thunder--;
-    }
+function reverse(york){
+  v = 0;
+  let first = document.getElementsByClassName("card")[york];
+  let second = first.lastChild.previousElementSibling;
+  if(second.classList.contains('wrong10')){
+    second.removeAttribute('class', 'wrong10')
+    second.setAttribute('class', 'wrong11')
+    second.innerHTML = "Not Read";
   }
-  };
-
-function function0(){
-  alert('sweet!')
+  else if(second.classList.contains('wrong11')){
+    second.removeAttribute('class', 'wrong11')
+    second.setAttribute('class', 'wrong10')
+    second.innerHTML = "Read";
+  }
+  bl = 0;
+  lb = 0;
+  let flip = document.getElementsByClassName('flip');
+  c = flip[0].childElementCount;
+  while(v<c) {
+    first = document.getElementsByClassName("card")[v];
+    let second = first.lastChild;
+    second.setAttribute('onclick',`handleDelete(${v});`)
+    v++;
+  }
 }
 
-function handleDelete(){
-      p=0;
-      v=0;
-      let first = document.getElementsByClassName("card")[p];
+
+function handleDelete(opo){
+      v = 0;
+      let first = document.getElementsByClassName("card")[opo];
       first.remove();
+      i--;
+      thunder--;
       let flip = document.getElementsByClassName('flip');
-      var c = flip[0].childElementCount;
+      c = flip[0].childElementCount;
       while(v<c) {
         first = document.getElementsByClassName("card")[v];
         let second = first.lastChild;
-        second.setAttribute('onclick',`handleDelete${v}()`)
+        second.setAttribute('onclick',`handleDelete(${v});`)
+        second = first.lastChild.previousElementSibling;
+        second.setAttribute('onclick',`reverse(${v});`)
         v++;
       }
-      thunder--;
+
     }
 
 
