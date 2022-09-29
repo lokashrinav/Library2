@@ -20,7 +20,7 @@ let size = "Read";
 
 let weight = "Not Read";
 
-
+let putty; 
 
 function Read() {
   this.putty = size;
@@ -39,20 +39,20 @@ document.getElementsByClassName('center')[0]
           pop.classList.add("popup-open");
         });
 
-document.getElementsByClassName('enter')[0]
-        .addEventListener('click', function (event) {
+function siv() {
           let bl = 0;
           let lb = 0;
           let first = document.getElementById("hi1").value;
           let second = document.getElementById("hi2").value;
           let third = document.getElementById("hi3").value;
-          
+
           for(pk = 0; pk < i; pk++) {
             let r = document.querySelector(".card");
             r.remove()
           }
           pop.classList.remove("popup-open");
           pop.classList.add("popup");
+          
           Library[i] = ["Book Name: " + first, "Author Name: " + second, "Number of Pages: " + third, putty]
           q=0;
           i++;
@@ -98,7 +98,9 @@ document.getElementsByClassName('enter')[0]
 
           }
           thunder++;
-        });
+        
+
+        };
 
 let v;
 let opo;
