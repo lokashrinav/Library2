@@ -20,8 +20,6 @@ let size = "Read";
 
 let weight = "Not Read";
 
-let putty; 
-
 function Read() {
   this.putty = size;
 }
@@ -97,7 +95,11 @@ function siv() {
             q++;
 
           }
-          thunder++;
+          document.getElementById("hi1").value = "";
+          document.getElementById("hi2").value = "";
+          document.getElementById("hi3").value = "";
+          document.getElementById("secret").checked = false;
+          document.getElementById("secret1").checked = false;
         
 
         };
