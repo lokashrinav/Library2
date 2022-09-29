@@ -33,9 +33,12 @@ input[type="submit"]{
     background-color: white;
     border-radius: 30px;
     border: 1px solid black;
-    box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 6px 20px 0 rgb(255, 255, 255);
     cursor: pointer;
     
+}
+
+.center:hover{
+    box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 6px 20px 0 rgb(255, 255, 255);
 }
 
 .full{
