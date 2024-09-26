@@ -1,14 +1,16 @@
-# Real-Time Chat Application
+# Library Management System
 
-## Overview
-This is a real-time chat application featuring a single chat room. Users can join the chat, send messages, and view the chat history.
+A web-based application to manage a personal library. Users can add books with details like title, author, and number of pages, and indicate whether they have read them. The application features a user-friendly interface to display the library and manage entries.
 
 ## Features
-- **Real-Time Messaging**: Users can send and receive messages instantly.
-- **Chat Room**: All users are in a single chat room.
-- **Reset Chat History**: Users can reset the chat history at any time.
+
+- **Add Books**: Input book details including name, author, number of pages, and reading status.
+- **Display Library**: Visual representation of all books in the library.
+- **Toggle Read Status**: Easily switch between "Read" and "Not Read" status for each book.
+- **Delete Books**: Remove books from the library.
 
 ## Technologies Used
+
 - HTML
 - CSS
 - JavaScript
